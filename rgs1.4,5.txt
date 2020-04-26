@@ -1,6 +1,7 @@
 function Button(props) {
+    const handleClick = () => props.onClickFunction(props.value);
 	return (
-    <button onClick={() => props.onClickFunction(props.value)}>    
+    <button onClick={handleClick}>    
         +{props.value}                                             
     </button>);     
 //Here we cant use onClick={props.onClickFunction(props.value)} in line 3
