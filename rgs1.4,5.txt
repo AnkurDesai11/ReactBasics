@@ -1,0 +1,29 @@
+function Button(props) {
+	return (
+    <button onClick={() => props.onClickFunction(props.value)}>    
+        +{props.value}                                             
+    </button>);     
+//Here we cant use onClick={props.onClickFunction(props.value)} in line 3
+//as it becomes a function cal and hence we use given format                                               
+//of binding all of it into a function using JSX
+}
+function Display(props){
+  return (<div>{props.message}</div>);
+}
+function App(){
+  const [counter, setCounter] = useState(0);
+  const increment = (val) => setCounter(counter+val);
+  return(
+    <div>
+      <Button onClickFunction={increment} value={1} />
+      <Button onClickFunction={increment} value={5} />
+      <Button onClickFunction={increment} value={10} />
+      <Button onClickFunction={increment} value={100} />
+      <Display message={counter} />
+    </div>
+  );
+}
+ReactDOM.render(
+  <App />, 
+  document.getElementById('mountNode'),
+);
